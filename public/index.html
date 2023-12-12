@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./bulid//tailwind.css" />
+  </head>
+  <body>
+    <div class="bg-gray-800 min-h-screen flex flex-col items-center">
+      <!-- appbar -->
+      <div
+        class="bg-gray-500 flex gap-x-4 h-12 w-full mb-8 justify-center items-center text-gray-300"
+      >
+        <h1 class="text-xl font-bold">Inventory App using tailwind & js</h1>
+        <span
+          class="flex items-center justify-center bg-gray-400 border-2 border-gray-200 rounded-full w-7 h-7 font-bold text-gray-100"
+          >9</span
+        >
+      </div>
+
+      <!-- app content -->
+      <div class="container max-w-screen-sm mx-auto flex flex-col gap-y-4">
+        <!-- category form -->
+        <div class="flex flex-col">
+          <h2 class="text-gray-400 mb-1 text-xl font-bold">Add New Category</h2>
+          <form
+            class="flex flex-col text-gray-300 bg-gray-600 p-4 gap-y-3 rounded-lg"
+          >
+            <div>
+              <label for="category-title" class="block mb-1"
+                >Category Title</label
+              >
+              <input
+                type="text"
+                name="category-title"
+                id="category-title"
+                placeholder="title..."
+                class="border border-gray-400 bg-transparent rounded-lg p-1"
+              />
+            </div>
+            <div>
+              <label for="category-description" class="block mb-1"
+                >Category Description</label
+              >
+              <textarea
+                name="category-description"
+                id="category-description"
+                class="rounded-lg border border-gray-400 bg-transparent w-full"
+              ></textarea>
+            </div>
+            <div class="flex gap-x-2">
+              <button class="flex-1 p-1 border border-gray-400 rounded-lg">
+                cancel
+              </button>
+              <button class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg">
+                Add New Category
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- product form -->
+        <div class="flex flex-col">
+          <h2 class="text-gray-400 mb-1 text-xl font-bold">Add New Product</h2>
+          <form
+            class="flex flex-col text-gray-300 bg-gray-600 p-4 gap-y-3 rounded-lg"
+          >
+            <div>
+              <label for="product-title" class="block mb-1"
+                >Product Title</label
+              >
+              <input
+                type="text"
+                name="product-title"
+                id="product-title"
+                placeholder="product title..."
+                class="border border-gray-400 bg-transparent rounded-lg p-1"
+              />
+            </div>
+            <div>
+              <label for="product-quantity" class="block mb-1"> Quantity</label>
+              <input
+                type="number"
+                name="product-quantity"
+                id="product-quantity"
+                placeholder="quantity..."
+                class="border border-gray-400 bg-transparent rounded-lg p-1"
+              />
+            </div>
+            <div>
+              <label for="product-category" class="block mb-1">Category</label>
+
+              <select
+                name="product-category"
+                id="product-category"
+                class="border border-gray-400 bg-transparent rounded-lg p-1 w-full"
+              >
+                <option class="bg-gray-500 text-gray-200" value="">
+                  select a category
+                </option>
+                <option class="bg-gray-500 text-gray-200" value="saab">
+                  Saab
+                </option>
+                <option class="bg-gray-500 text-gray-200" value="mercedes">
+                  Mercedes
+                </option>
+                <option class="bg-gray-500 text-gray-200" value="audi">
+                  Audi
+                </option>
+              </select>
+            </div>
+
+            <button class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg">
+              Add New Product
+            </button>
+          </form>
+        </div>
+        <!-- product list -->
+        <div class="flex flex-col">
+          <h2 class="text-gray-400 mb-1 text-xl font-bold">Product List</h2>
+          <form class="flex flex-col text-gray-300 p-4 gap-y-3 rounded-lg">
+            <div class="flex justify-between">
+              <label for="sort-date" class="mb-1">sort</label>
+              <select
+                name="sort-date"
+                id="sort-date"
+                class="border border-gray-400 bg-transparent rounded-lg p-1 w-1/4"
+              >
+                <option class="bg-gray-500 text-gray-200" value="newest">
+                  newest
+                </option>
+                <option class="bg-gray-500 text-gray-200" value="lastest">
+                  lastest
+                </option>
+                <option class="bg-gray-500 text-gray-200" value="audi">
+                  Audi
+                </option>
+              </select>
+            </div>
+            <div class="flex justify-between">
+              <label for="search-product" class="mb-1"> search</label>
+              <input
+                type="number"
+                name="search-product"
+                id="search-product"
+                class="border border-gray-400 bg-transparent rounded-lg p-1"
+              />
+            </div>
+            <div class="flex justify-between">
+              <span>folan</span>
+              <div class="flex items-center gap-x-2">
+                <span>date</span>
+                <span
+                  class="border border-gray-400 bg-transparent rounded-xl px-2 py-0.5"
+                  >category</span
+                >
+                <span
+                  class="flex items-center justify-center bg-gray-400 border-2 border-gray-200 rounded-full w-6 h-6 text-gray-100"
+                  >9</span
+                >
+                <button
+                  class="border border-red-400 text-red-400 rounded-xl px-2 py-0.5"
+                >
+                  delete
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>
