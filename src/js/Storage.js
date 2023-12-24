@@ -64,11 +64,20 @@ localStorage.setItem("category",JSON.stringify(savedCategories))
 }
 
 // get all products
-static  getAllProducts(){
+static  getAllProducts (sort){
     const savedProducts= JSON.parse(localStorage.getItem("products"))||[]
     // sorting =>نزووولی
-   const sortedProducts= savedProducts.sort((a,b)=>{new Date(b.createdAt)-new Date(a.createdAt)})
-   return sortedProducts;
+   return savedProducts.sort((a,b)=>{
+    if(sort==="newest"){
+      return new Date(b.createdAt)-new Date(a.createdAt)
+    }else if(sort==="oldest"){
+     return new Date(a.createdAt)-new Date(b.createdAt)
+    }else{
+      return new Date(b.createdAt)-new Date(a.createdAt)
+    }
+  
+  })
+ 
 }
 
 // add new product
@@ -88,7 +97,12 @@ existedItem.quantity= productToSave.quantity;
     productToSave.createdAt=new Date().toISOString();
     savedProducts.push(productToSave)
 }
-localStorage.setItem("product",JSON.stringify(savedProducts))
+localStorage.setItem("products",JSON.stringify(savedProducts))
 
+}
+static deleteProduct(id){
+  const savedProducts= Storage.getAllProducts();
+const filteredProdocts= savedProducts.filter((p)=>p.id!==parseInt(id));
+localStorage.setItem("products",JSON.stringify(filteredProdocts))
 }
 }

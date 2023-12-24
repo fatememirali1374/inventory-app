@@ -22,42 +22,50 @@
       <!-- app content -->
       <div class="container max-w-screen-sm mx-auto flex flex-col gap-y-4">
         <!-- category form -->
-        <div class="flex flex-col">
-          <h2 class="text-gray-400 mb-1 text-xl font-bold">Add New Category</h2>
-          <form
-            class="flex flex-col text-gray-300 bg-gray-600 p-4 gap-y-3 rounded-lg"
-          >
-            <div>
-              <label for="category-title" class="block mb-1"
-                >Category Title</label
+        <div>
+          <div class="hidden" id="category-wrapper">
+            <div class="flex flex-col " >
+              <h2 class="text-gray-400 mb-1 text-xl font-bold">Add New Category</h2>
+              <form
+                class="flex flex-col text-gray-300 bg-gray-600 p-4 gap-y-3 rounded-lg"
               >
-              <input
-                type="text"
-                name="category-title"
-                id="category-title"
-                placeholder="title..."
-                class="border border-gray-400 bg-transparent rounded-lg p-1"
-              />
+                <div>
+                  <label for="category-title" class="block mb-1"
+                    >Category Title</label
+                  >
+                  <input
+                    type="text"
+                    name="category-title"
+                    id="category-title"
+                    placeholder="title..."
+                    class="border border-gray-400 bg-transparent rounded-lg p-1"
+                  />
+                </div>
+                <div>
+                  <label for="category-description" class="block mb-1"
+                    >Category Description</label
+                  >
+                  <textarea
+                    name="category-description"
+                    id="category-description"
+                    class="rounded-lg border border-gray-400 bg-transparent w-full"
+                  ></textarea>
+                </div>
+                <div class="flex gap-x-2">
+                  <button id="cancel-add-category" class="flex-1 p-1 border border-gray-400 rounded-lg">
+                    cancel
+                  </button>
+                  <button
+                    id="add-new-category"
+                    class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg"
+                  >
+                    Add New Category
+                  </button>
+                </div>
+              </form>
             </div>
-            <div>
-              <label for="category-description" class="block mb-1"
-                >Category Description</label
-              >
-              <textarea
-                name="category-description"
-                id="category-description"
-                class="rounded-lg border border-gray-400 bg-transparent w-full"
-              ></textarea>
-            </div>
-            <div class="flex gap-x-2">
-              <button class="flex-1 p-1 border border-gray-400 rounded-lg">
-                cancel
-              </button>
-              <button id="add-new-category" class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg">
-                Add New Category
-              </button>
-            </div>
-          </form>
+          </div>
+          <button id="toggel-add-category" class="text-gray-600 text-lg font-medium">Add New Category?</button>
         </div>
         <!-- product form -->
         <div class="flex flex-col">
@@ -94,23 +102,13 @@
                 name="product-category"
                 id="product-category"
                 class="border border-gray-400 bg-transparent rounded-lg p-1 w-full"
-              >
-                <option class="bg-gray-500 text-gray-200" value="">
-                  select a category
-                </option>
-                <option class="bg-gray-500 text-gray-200" value="saab">
-                  Saab
-                </option>
-                <option class="bg-gray-500 text-gray-200" value="mercedes">
-                  Mercedes
-                </option>
-                <option class="bg-gray-500 text-gray-200" value="audi">
-                  Audi
-                </option>
-              </select>
+              ></select>
             </div>
 
-            <button class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg">
+            <button
+              id="add-new-product"
+              class="flex-1 p-1 text-gray-600 bg-gray-300 rounded-lg"
+            >
               Add New Product
             </button>
           </form>
@@ -118,54 +116,40 @@
         <!-- product list -->
         <div class="flex flex-col">
           <h2 class="text-gray-400 mb-1 text-xl font-bold">Product List</h2>
-          <form class="flex flex-col text-gray-300 p-4 gap-y-3 rounded-lg">
+          <div class="flex flex-col text-gray-300 p-4 gap-y-3 rounded-lg">
             <div class="flex justify-between">
-              <label for="sort-date" class="mb-1">sort</label>
+              <label for="sort-products" class="mb-1">sort</label>
               <select
-                name="sort-date"
-                id="sort-date"
+                name="sort-products"
+                id="sort-products"
                 class="border border-gray-400 bg-transparent rounded-lg p-1 w-1/4"
               >
-                <option class="bg-gray-500 text-gray-200" value="newest">
+                <option class="bg-gray-500 text-gray-200" value="">
+                  select category
+                </option>
+                <option
+                  class="bg-gray-500 text-gray-200"
+                  selected
+                  value="newest"
+                >
                   newest
                 </option>
-                <option class="bg-gray-500 text-gray-200" value="lastest">
-                  lastest
-                </option>
-                <option class="bg-gray-500 text-gray-200" value="audi">
-                  Audi
+                <option class="bg-gray-500 text-gray-200" value="oldest">
+                  oldest
                 </option>
               </select>
             </div>
             <div class="flex justify-between">
               <label for="search-product" class="mb-1"> search</label>
               <input
-                type="number"
-                name="search-product"
-                id="search-product"
+                type="text"
+                name="search-input"
+                id="search-input"
                 class="border border-gray-400 bg-transparent rounded-lg p-1"
               />
             </div>
-            <div class="flex justify-between">
-              <span>folan</span>
-              <div class="flex items-center gap-x-2">
-                <span>date</span>
-                <span
-                  class="border border-gray-400 bg-transparent rounded-xl px-2 py-0.5"
-                  >category</span
-                >
-                <span
-                  class="flex items-center justify-center bg-gray-400 border-2 border-gray-200 rounded-full w-6 h-6 text-gray-100"
-                  >9</span
-                >
-                <button
-                  class="border border-red-400 text-red-400 rounded-xl px-2 py-0.5"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </form>
+            <div id="products-list"></div>
+          </div>
         </div>
       </div>
     </div>
